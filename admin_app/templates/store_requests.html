@@ -1,0 +1,39 @@
+<!-- admin_app/templates/store_requests.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Store Requests</title>
+</head>
+<body>
+    <h1>Store Requests</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Store Name</th>
+                <th>Description</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in requests %}
+                <tr>
+                    <td>{{ request.store_name }}</td>
+                    <td>{{ request.description }}</td>
+                    <td>{{ request.created_at }}</td>
+                    <td>
+                        <form method="POST" action="{% url 'approve_store_request' request.pk %}">
+                            {% csrf_token %}
+                            <button type="submit">Approve</button>
+                        </form>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">No store requests found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

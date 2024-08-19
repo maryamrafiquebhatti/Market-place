@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buyer Signup</title>
+</head>
+<body>
+    <h2>Buyer Signup</h2>
+    <form method="post" action="{% url 'core:buyer_signup' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="{% url 'core:buyer_login' %}">Login</a></p>
+</body>
+</html>

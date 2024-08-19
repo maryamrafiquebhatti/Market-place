@@ -1,0 +1,28 @@
+<!-- buyer_profile.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buyer Profile</title>
+</head>
+<body>
+    <h2>Buyer Profile</h2>
+    <p>Welcome, {{ user.username }}!</p>
+    <h3>Products</h3>
+    <ul>
+        {% for product in products %}
+            <li>
+                <h4>{{ product.name }}</h4>
+                <p>{{ product.description }}</p>
+                <p>Price: ${{ product.price }}</p>
+                <a href="{% url 'buyer:add_to_cart' product.id %}">Add to Cart</a>
+            </li>
+        {% empty %}
+            <p>No products available.</p>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'buyer:cart' %}">Cart</a>
+    <a href="{% url 'buyer:order_history' %}">Order History</a>
+    <a href="{% url 'buyer:logout' %}">Logout</a>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<h1>Manage Products</h1>
+
+<h2>Your Products</h2>
+<ul>
+    {% for product in products %}
+        <li>{{ product.name }} - <a href="{% url 'seller_app:edit_product' product.id %}">Edit</a> | <a href="{% url 'seller_app:delete_product' product.id %}">Delete</a></li>
+    {% endfor %}
+</ul>
+
+<h2>Add New Product</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Product</button>
+</form>

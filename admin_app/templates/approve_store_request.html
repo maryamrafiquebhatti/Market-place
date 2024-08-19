@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Approve Store Request</title>
+</head>
+<body>
+    <h1>Approve Store Request</h1>
+    <p>Are you sure you want to approve the store request for "{{ store_request.store_name }}"?</p>
+    <form action="{% url 'approve_store_request' store_request.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Approve</button>
+        <a href="{% url 'store_requests' %}">Cancel</a>
+    </form>
+</body>
+</html>

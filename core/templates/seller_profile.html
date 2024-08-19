@@ -1,0 +1,19 @@
+<!-- seller_profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Profile</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Seller Profile</h2>
+        <p>Welcome, {{ user.username }}!</p>
+        <p>Stock Levels: {{ stock_levels }}</p>
+        <p>Analytics: {{ analytics }}</p>
+        <a href="{% url 'add_product' %}">Add Product</a>
+        <a href="{% url 'manage_products' %}">Manage Products</a>
+    </div>
+</body>
+</html>

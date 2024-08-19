@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .dashboard {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 200px;
+        }
+        .card h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .card p {
+            font-size: 16px;
+            margin: 10px 0 0;
+        }
+        .actions {
+            margin-top: 20px;
+        }
+        .actions a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <div class="dashboard">
+        <div class="card">
+            <h2>{{ total_products }}</h2>
+            <p>Total Products</p>
+            <div class="actions">
+                <a href="{% url 'product_list' %}">Manage Products</a>
+            </div>
+        </div>
+        <div class="card">
+            <h2>{{ pending_store_requests }}</h2>
+            <p>Pending Store Requests</p>
+            <div class="actions">
+                <a href="{% url 'store_requests' %}">Review Requests</a>
+            </div>
+        </div>
+        <div class="card">
+            <h2>{{ total_users }}</h2>
+            <p>Total Users</p>
+            <div class="actions">
+                <a href="{% url 'user_list' %}">Manage Users</a>
+            </div>
+        </div>
+        <div class="card">
+            <h2>{{ total_sellers }}</h2>
+            <p>Total Sellers</p>
+            <div class="actions">
+                <a href="{% url 'user_list' %}">Manage Sellers</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
