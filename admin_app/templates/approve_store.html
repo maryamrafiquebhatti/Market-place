@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Approve Store</title>
+</head>
+<body>
+    <h1>Approve Store</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <p>Are you sure you want to approve the store "{{ store.name }}"?</p>
+        <button type="submit">Approve</button>
+    </form>
+</body>
+</html>

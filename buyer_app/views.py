@@ -77,7 +77,6 @@ def checkout(request):
         order.stripe_payment_id = intent['id']
         order.save()
 
-        # Clear the cart
         request.session['cart'] = {}
 
         return render(request, 'checkout_success.html', {'order': order})

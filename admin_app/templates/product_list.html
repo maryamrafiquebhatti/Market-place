@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Product List</h1>
-    <a href="{% url 'admin_dashboard' %}">Back to Dashboard</a>
+    <a href="{% url 'admin_app:admin_dashboard' %}">Back to Dashboard</a>
     <ul>
         {% for product in products %}
             <li>{{ product.name }} - ${{ product.price }}</li>

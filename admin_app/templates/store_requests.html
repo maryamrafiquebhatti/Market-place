@@ -22,7 +22,7 @@
                     <td>{{ request.description }}</td>
                     <td>{{ request.created_at }}</td>
                     <td>
-                        <form method="POST" action="{% url 'approve_store_request' request.pk %}">
+                        <form method="POST" action="{% url 'admin_app:approve_store_request' request.pk %}">
                             {% csrf_token %}
                             <button type="submit">Approve</button>
                         </form>

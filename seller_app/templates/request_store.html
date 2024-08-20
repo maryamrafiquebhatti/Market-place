@@ -1,16 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+{% comment %} <!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    {% if store %}
+        {% if store.is_approved %}
+            <h2>Your store "{{ store.name }}" is approved!</h2>
+            <p>{{ store.description }}</p>
+        {% else %}
+            <h2>Your store "{{ store.name }}" is awaiting approval.</h2>
+        {% endif %}
+    {% else %}
+        <h2>You have not requested a store yet.</h2>
+        <a href="{% url 'seller_app:request_store' %}">Request Store</a>
+    {% endif %}
+</body>
+</html> {% endcomment %}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
     <title>Request Store</title>
 </head>
 <body>
-    <h1>Request a Store</h1>
-    
+    <h1>Request Store Page</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Submit Request</button>
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>
+

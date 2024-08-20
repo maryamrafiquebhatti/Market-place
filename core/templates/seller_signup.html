@@ -1,20 +1,17 @@
-<!-- seller_signup.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seller Signup</title>
-</head>
-<body>
-    <div class="container">
-        <h2>Seller Signup</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Sign Up</button>
-        </form>
-        <p>Already have an account? <a href="{% url 'core:seller_login' %}">Login</a></p>
-    </div>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Seller Signup{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Seller Signup</h1>
+    
+    <form method="POST" class="bg-white p-4 rounded shadow-sm">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+    
+    <p class="mt-3">Already have an account? <a href="{% url 'core:seller_login' %}">Login</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Store Approval List</title>
+</head>
+<body>
+    <h1>Stores Pending Approval</h1>
+    <ul>
+        {% for store in stores %}
+            <li>
+                {{ store.name }} - <a href="{% url 'admin_app:approve_store' store.id %}">Approve</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

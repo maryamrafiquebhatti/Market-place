@@ -1,22 +1,30 @@
-<!-- core/templates/core/admin_signup.html -->
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Signup</title>
-</head>
-<body>
-    <h1>Admin Signup</h1>
-    <form method="POST">
+{% block title %}Admin Signup{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Admin Signup</h1>
+
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <form method="POST" class="bg-white p-4 rounded shadow-sm">
         {% csrf_token %}
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-        <button type="submit">Sign Up</button>
+        <div class="mb-3">
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" id="username" name="username" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
     </form>
-    <p>Already have an account? <a href="{% url 'core:admin_login' %}">Login here</a></p>
-</body>
-</html>
+
+    <p class="mt-3">Already have an account? <a href="{% url 'core:admin_login' %}">Login here</a></p>
+</div>
+{% endblock %}

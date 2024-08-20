@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Buyer Signup</title>
-</head>
-<body>
-    <h2>Buyer Signup</h2>
-    <form method="post" action="{% url 'core:buyer_signup' %}">
+{% extends 'base.html' %}
+
+{% block title %}Buyer Signup{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Buyer Signup</h1>
+    
+    <form method="POST" action="{% url 'core:buyer_signup' %}" class="bg-white p-4 rounded shadow-sm">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Sign Up</button>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
     </form>
-    <p>Already have an account? <a href="{% url 'core:buyer_login' %}">Login</a></p>
-</body>
-</html>
+
+    <p class="mt-3">Already have an account? <a href="{% url 'core:buyer_login' %}">Login</a></p>
+</div>
+{% endblock %}

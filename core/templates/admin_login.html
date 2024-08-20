@@ -1,25 +1,30 @@
-<!-- core/templates/core/admin_login.html -->
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
-</head>
-<body>
-    <h1>Admin Login</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-        <button type="submit">Login</button>
-    </form>
-    <p>Don't have an account? <a href="{% url 'core:admin_signup' %}">Sign up here</a></p>
+{% block title %}Admin Login{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Admin Login</h1>
+
     {% if error %}
-        <p style="color: red;">{{ error }}</p>
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
     {% endif %}
-</body>
-</html>
+
+    <form method="POST" class="bg-white p-4 rounded shadow-sm">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" id="username" name="username" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+
+    <p class="mt-3">Don't have an account? <a href="{% url 'core:admin_signup' %}">Sign up here</a></p>
+</div>
+{% endblock %}

@@ -1,9 +1,10 @@
 from django import forms
-from .models import  Product, StoreRequest
-from seller_app.models import Store
+from .models import Store , Product
 
-
-
+class StoreForm(forms.ModelForm):
+    class Meta:
+        model = Store
+        fields = ['name', 'description']
 
 class ProductForm(forms.ModelForm):
     class Meta:
@@ -11,12 +12,3 @@ class ProductForm(forms.ModelForm):
         fields = ['name', 'description', 'price', 'stock']
 
 
-        
-# seller_app/forms.py
-from django import forms
-from .models import StoreRequest
-
-class StoreRequestForm(forms.ModelForm):
-    class Meta:
-        model = StoreRequest
-        fields = ['store_name', 'description']

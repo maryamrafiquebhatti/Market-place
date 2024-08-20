@@ -146,5 +146,5 @@ DEFAULT_FROM_EMAIL = '2021ee290@student.uet.edu.pk'
 
 
 
-STRIPE_TEST_PUBLIC_KEY = 'your-test-public-key'
-STRIPE_TEST_SECRET_KEY = 'your-test-secret-key'
+STRIPE_TEST_PUBLIC_KEY = 'public key add krni'
+STRIPE_TEST_SECRET_KEY = 'secret key add krni'

@@ -1,38 +1,179 @@
-<!-- core/templates/core/home.html -->
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>Welcome to My E-Commerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #ff6600;
+        }
+
+        .navbar a {
+            color: white !important;
+        }
+
+        .hero {
+            background-color: #00ccff;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            padding: 50px 0;
+        }
+
+        .section h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            border-bottom: 5px solid #ff6600;
+        }
+
+        .btn-custom {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+        }
+
+        .btn-custom:hover {
+            background-color: #e65c00;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #ff6600;
+            text-decoration: none;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Welcome to the Ecommerce Platform</h1>
-    <p>Select your role:</p>
 
-    <!-- Admin Section -->
-    <div>
-        <h2>Admin</h2>
-        <a href="{% url 'core:admin_login' %}">Login as Admin</a>
-        <p>Don't have an account? <a href="{% url 'core:admin_signup' %}">Sign up</a></p>
-        <p>Already have an account? <a href="{% url 'core:admin_login' %}">Login</a></p>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">My E-Commerce</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Deals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Welcome to My E-Commerce Platform</h1>
+            <p>Discover the best products at unbeatable prices.</p>
+        </div>
     </div>
 
-    <!-- Seller Section -->
-    <div>
-        <h2>Seller</h2>
-        <a href="/seller/login/">Login as Seller</a>
-        <p>Don't have an account? <a href="/signup/seller/">Sign up</a></p>
-        <p>Already have an account? <a href="/login/seller">Login</a></p>
+    <!-- Role Selection Section -->
+    <div class="container section">
+        <h2 class="text-center">Select Your Role</h2>
+        <div class="row text-center">
+            <!-- Admin Section -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x250/ff6600/FFFFFF?text=Role+Selection" class="card-img-top"
+                        alt="Admin">
+                    <div class="card-body">
+                        <h5 class="card-title">Admin</h5>
+                        <a href="{% url 'core:admin_login' %}" class="btn btn-custom">Login as Admin</a>
+                        <p class="mt-2">Don't have an account? <a href="{% url 'core:admin_signup' %}">Sign up</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seller Section -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x250/ff6600/FFFFFF?text=Role+Selection" class="card-img-top"
+                        alt="Seller">
+                    <div class="card-body">
+                        <h5 class="card-title">Seller</h5>
+                        <a href="/seller/login/" class="btn btn-custom">Login as Seller</a>
+                        <p class="mt-2">Don't have an account? <a href="/signup/seller/">Sign up</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buyer Section -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x250/ff6600/FFFFFF?text=Role+Selection" class="card-img-top"
+                        alt="Buyer">
+                    <div class="card-body">
+                        <h5 class="card-title">Buyer</h5>
+                        <a href="/buyer/login/" class="btn btn-custom">Login as Buyer</a>
+                        <p class="mt-2">Don't have an account? <a href="/buyer/signup/">Sign up</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Buyer Section -->
-    <div>
-        <h2>Buyer</h2>
-        <a href="/buyer/login/">Login as Buyer</a>
-        <p>Don't have an account? <a href="/buyer/signup/">Sign up</a></p>
-        <p>Already have an account? <a href="/buyer/login/">Login</a></p>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2024 My E-Commerce Platform</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a></p>
+        </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

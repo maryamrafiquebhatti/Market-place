@@ -9,7 +9,7 @@
     <form action="{% url 'approve_store_request' store_request.pk %}" method="post">
         {% csrf_token %}
         <button type="submit">Approve</button>
-        <a href="{% url 'store_requests' %}">Cancel</a>
+        <a href="{% url 'admin_app:store_requests' %}">Cancel</a>
     </form>
 </body>
 </html>
